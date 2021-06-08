@@ -8,6 +8,22 @@ details, see the commit logs at http://github.com/scikit-build/scikit-build
 Next Release
 ============
 
+
+New Features
+------------
+
+* Support Apple Silicon wheels by respecting ``CMAKE_OSX_ARCHITECTURES`` and producing correct names.
+  Thanks :user:`YannickJadoul` for the contribution. See :issue:`530`.
+
+* Support two new options from FindCython.
+  Thanks :user:`bdice` for the contribution. See :issue:`519`.
+    * ``CYTHON_WITH_NO_DOCSTRINGS_ARG determines whether Cython is provided the
+      argument ``--no-docstrings. This option defaults to True for ``Release``
+      and ``MinSizeRel`` builds, and is False otherwise.
+    * ``CYTHON_WITH_EMBED_POSITIONS_ARG`` determines whether Cython is provided
+      the argument ``--embed-positions``. This option defaults to True for
+      ``Debug`` and ``RelWithDebInfo`` builds, and is False otherwise.
+
 Bug fixes
 ---------
 
@@ -18,6 +34,12 @@ Bug fixes
 
 * If it applies, ensure generator toolset is used to configure the project.
   Thanks :user:`YannickJadoul` for the contribution. See :issue:`526`.
+
+* Changing ``CYTHON_FLAGS`` now is respected for each module compiled.
+  Thanks :user:`oiffrig` for the contribution. See :issue:`538`.
+
+* Avoid an index error when the prefix is empty.
+  Thanks :user:`dfaure` for the contribution. See :issue:`522`.
 
 Documentation
 -------------
